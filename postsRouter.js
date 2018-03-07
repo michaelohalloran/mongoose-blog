@@ -1,15 +1,3 @@
-const express = require('express');
-const router = express.Router();
-
-const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
-router.use(bodyParser.urlencoded({ extended: false }));
-
-const {BlogPosts} = require('./models');
-
-BlogPosts.create('Post 1', 'This is the first post', 'Bob');
-BlogPosts.create('Post 2', 'This is the second post', 'Bob');
-
 //retrieve all blog posts
 router.get('/', (req,res) => {
     res.json(BlogPosts.get());
@@ -63,4 +51,4 @@ router.delete('/:id', (req, res) => {
     res.status(204).end();
 });
 
-module.exports = router;
+// module.exports = router;
